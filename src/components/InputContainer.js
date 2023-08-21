@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 
-const InputContainer = ({ inputArr, setInputArr }) => {
+const InputContainer = ({ inputArr, setInputArr, isValidYouTubeUrl }) => {
     function addInputBox() {
         setInputArr((s) => [...s, { type: "text", value: "" }]);
     }
@@ -16,11 +16,8 @@ const InputContainer = ({ inputArr, setInputArr }) => {
 
     const handleSort = () => {
         const _inputArr = [...inputArr];
-        console.log(inputArr);
         const draggedItemContent = _inputArr.splice(dragItem.current, 1)[0];
-        console.log("draggedItemContent ", draggedItemContent);
         _inputArr.splice(dragOverItem.current, 0, draggedItemContent);
-        console.log(_inputArr)
         dragItem.current = null;
         dragOverItem.current = null;
         setInputArr(_inputArr);
@@ -33,6 +30,7 @@ const InputContainer = ({ inputArr, setInputArr }) => {
         <div className='input-container'>
             {inputArr.map((input, i) => (
                 <div
+                    key={i}
                     className='input-item'
                     draggable
                     onDragStart={() => (dragItem.current = i)}
@@ -41,10 +39,9 @@ const InputContainer = ({ inputArr, setInputArr }) => {
                     onDragOver={(e) => e.preventDefault()}
                 >
                     <span style={{ color: "#7958ff", fontSize: "1.5rem" }}>
-                        &#x25B6;
+                        &#9776;
                     </span>
                     <input
-                        key={i}
                         onChange={handleTextChange}
                         value={input.value}
                         id={i}
@@ -52,7 +49,14 @@ const InputContainer = ({ inputArr, setInputArr }) => {
                     />
                 </div>
             ))}
-            <button className='btn' onClick={addInputBox}>
+            <button
+                className='btn'
+                onClick={addInputBox}
+                disabled={
+                    inputArr.length > 0 &&
+                    !isValidYouTubeUrl(inputArr[inputArr.length - 1]?.value)
+                }
+            >
                 +
             </button>
         </div>
