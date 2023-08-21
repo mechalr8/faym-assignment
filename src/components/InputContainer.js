@@ -2,8 +2,10 @@ import React, { useRef } from "react";
 
 const InputContainer = ({ inputArr, setInputArr, isValidYouTubeUrl }) => {
     function addInputBox() {
-        if (inputArr.length > 0 && !isValidYouTubeUrl(inputArr[inputArr.length - 1]?.value))
-            alert("Invalid youtube link")
+        // if (inputArr.length > 0 && !isValidYouTubeUrl(inputArr[inputArr.length - 1]?.value)){
+        //     alert("Invalid youtube link")
+        //     console.log("Invalid youtube link");
+        // }
         setInputArr((s) => [...s, { type: "text", value: "" }]);
     }
 
@@ -53,7 +55,7 @@ const InputContainer = ({ inputArr, setInputArr, isValidYouTubeUrl }) => {
             ))}
             <button
                 className='btn'
-                onClick={addInputBox}
+                onClick={() => addInputBox()}
                 disabled={
                     inputArr.length > 0 &&
                     !isValidYouTubeUrl(inputArr[inputArr.length - 1]?.value)
