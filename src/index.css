@@ -1,13 +1,101 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 0;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+header {
+    display: flex;
+    background: #7958ff;
+    color: white;
+    padding-left: 1.5rem;
+}
+
+.btn {
+    background: #7958ff;
+    color: white;
+    border: 0px;
+    font-size: 1.5rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 1.2rem;
+    align-self: flex-end;
+    margin-bottom: 0.5rem;
+}
+.btn:hover {
+    cursor: pointer;
+}
+
+.container {
+    display: flex;
+    margin-top: 4rem;
+    min-height: 30rem;
+}
+
+.input-container {
+    width: 40%;
+    padding: 1rem;
+    background: rgb(237, 237, 237);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #7958ff;
+    border-radius: 1rem;
+}
+
+.display-container {
+    width: 50%;
+    padding: 1rem;
+    background: rgb(237, 237, 237);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: auto auto;
+    border: 2px solid #7958ff;
+    border-radius: 1rem;
+}
+
+.input-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0.5rem 0;
+}
+
+span {
+    width: 5%;
+    padding: 0.5rem;
+}
+
+span:hover {
+    cursor: all-scroll;
+}
+
+input {
+    border: 2px solid #7958ff;
+    border-radius: 0.8rem;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    width: 80%;
+}
+
+.video-container {
+    border: 2px solid #7958ff;
+    border-radius: 1rem;
+    margin: 0 auto;
+    width: 16rem;
+    margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 900px) {
+    .container {
+        flex-direction: column;
+    }
+    .input-container,
+    .display-container {
+        margin-bottom: 1rem;
+        width: 70%;
+    }
+    .display-container {
+        grid-template-columns: auto;
+    }
 }

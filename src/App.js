@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import DisplayContainer from "./components/DisplayContainer";
+import Header from "./components/Header";
+import InputContainer from "./components/InputContainer";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [inputArr, setInputArr] = useState([]);
+    return (
+        <div className='App'>
+            <Header />
+            <div className='container'>
+                <InputContainer inputArr={inputArr} setInputArr={setInputArr} />
+                <DisplayContainer inputArr={inputArr} />
+            </div>
+        </div>
+    );
 }
 
 export default App;
