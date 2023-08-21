@@ -1,6 +1,6 @@
 import React from "react";
 
-const VideoContainer = ({ text, isValidYouTubeUrl }) => {
+const VideoContainer = ({ text, isValidYouTubeUrl, videoType }) => {
     function getId(url) {
         const regExp =
             /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=|shorts\/)([^#&?/]*).*/;
@@ -12,11 +12,21 @@ const VideoContainer = ({ text, isValidYouTubeUrl }) => {
 
     if (!isValidYouTubeUrl(text)) return;
     return (
-        <iframe
-            className='video-container'
-            src={`https://www.youtube.com/embed/${videoId}`}
-            title='YouTube video player'
-        />
+        <div className='video-container'>
+            <iframe
+                src={`https://www.youtube.com/embed/${videoId}`}
+                title='YouTube video player'
+            />
+            <img
+                alt='video-type'
+                src={
+                    videoType === "shorts"
+                        ? require("../images/shorts.png")
+                        : require("../images/youtube.png")
+                }
+            />
+            {videoType === "shorts"}
+        </div>
     );
 };
 

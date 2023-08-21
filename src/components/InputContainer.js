@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 
 const InputContainer = ({ inputArr, setInputArr, isValidYouTubeUrl }) => {
     function addInputBox() {
-        setInputArr((s) => [...s, { type: "text", value: "" }]);
+        setInputArr((s) => [...s, { videoType: "", value: "" }]);
     }
 
     const handleTextChange = (e) => {
@@ -10,6 +10,10 @@ const InputContainer = ({ inputArr, setInputArr, isValidYouTubeUrl }) => {
         setInputArr((s) => {
             const newArr = s.slice();
             newArr[index].value = e.target.value;
+            if(e.target.value.includes("shorts"))
+                newArr[index].videoType = "shorts"
+            else
+                newArr[index].videoType = "video";
             return newArr;
         });
     };
@@ -45,7 +49,7 @@ const InputContainer = ({ inputArr, setInputArr, isValidYouTubeUrl }) => {
                         onChange={handleTextChange}
                         value={input.value}
                         id={i}
-                        type={input.type}
+                        type="text"
                     />
                 </div>
             ))}

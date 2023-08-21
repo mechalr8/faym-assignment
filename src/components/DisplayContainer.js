@@ -6,7 +6,7 @@ const DisplayContainer = ({ inputArr, isValidYouTubeUrl }) => {
     return (
         <div className='display-container'>
             {inputArr.map((input, i) => (
-                <VideoContainer key={i} text={input.value} isValidYouTubeUrl={isValidYouTubeUrl}/>
+                <VideoContainer key={i} text={input.value} isValidYouTubeUrl={isValidYouTubeUrl} videoType={input.videoType}/>
             ))}
         </div>
     );
