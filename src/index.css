@@ -26,6 +26,11 @@ header {
     cursor: pointer;
 }
 
+.btn:disabled {
+    background: gray;
+    cursor: not-allowed;
+}
+
 .container {
     display: flex;
     margin-top: 4rem;

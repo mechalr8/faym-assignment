@@ -2,6 +2,8 @@ import React, { useRef } from "react";
 
 const InputContainer = ({ inputArr, setInputArr, isValidYouTubeUrl }) => {
     function addInputBox() {
+        if (inputArr.length > 0 && !isValidYouTubeUrl(inputArr[inputArr.length - 1]?.value))
+            alert("Invalid youtube link")
         setInputArr((s) => [...s, { type: "text", value: "" }]);
     }
 
